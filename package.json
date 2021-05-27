@@ -1,0 +1,29 @@
+{
+  "name": "wetube-update",
+  "version": "1.0.0",
+  "description": "I'm going to learn how to make app with express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/confidential-nt/wetube-update.git"
+  },
+  "author": "confidential-nt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/confidential-nt/wetube-update/issues"
+  },
+  "homepage": "https://github.com/confidential-nt/wetube-update#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "nodemon": "^2.0.7"
+  }
+}
