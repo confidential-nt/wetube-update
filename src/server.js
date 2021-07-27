@@ -1,6 +1,8 @@
 import express from "express";
+import session from "express-session";
 import morgan from "morgan";
-import globalRouter from "./routers/globalRouter";
+import { localsMiddleware } from "./middlewares";
+import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 
@@ -12,7 +14,18 @@ app.set("view engine", "pug");
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
-app.use("/", globalRouter);
+
+app.use(
+  session({
+    secret: "hello!",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(localsMiddleware);
+
+app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
 
