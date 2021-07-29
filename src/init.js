@@ -1,4 +1,5 @@
 // 이 파일은 필요한 모든 것들을 import 시키는 역할.
+import "dotenv/config";
 import "./db";
 import "./models/Video"; //preload 과정. 이렇게 하는 이유는, 이렇게 model을 미리
 // complie, 또는 create해야 우리가 필요할 때 해당 model을 사용할 수 있어서다.

@@ -5,7 +5,7 @@
 // 이 파일을 서버에서 사용하게 하려면, server.js에 가서 파일 자체를 import 해주자.
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/wetube", {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
