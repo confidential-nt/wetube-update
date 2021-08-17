@@ -2,26 +2,11 @@ doctype html
 html(lang="en")
     head
         title #{pageTitle} | #{siteName}
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+        link(rel="stylesheet", href="/static/css/styles.css")
+        block scripts  
     body
-        header     
-            h1=pageTitle
-            nav 
-                ul 
-                    li 
-                        a(href="/") Home
-                    if loggedIn    
-                        li 
-                            a(href="/logout") Log Out      
-                    else
-                        li 
-                            a(href="/join") Join
-                        li 
-                            a(href="/login") Login             
-                    li 
-                        a(href="/search") Search
-                    li 
-                        a(href="/videos/upload") Upload Video
+        include partials/header
         main 
             block content
         include partials/footer

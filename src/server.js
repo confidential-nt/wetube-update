@@ -6,6 +6,7 @@ import { localsMiddleware } from "./middlewares";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+import apiRouter from "./routers/apiRouter";
 
 const app = express();
 const logger = morgan("dev");
@@ -26,9 +27,11 @@ app.use(
 );
 
 app.use(localsMiddleware);
-
+app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("assets")); // 경로명이 꼭 assets일 필요는 없다.
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter);
 
 export default app;
