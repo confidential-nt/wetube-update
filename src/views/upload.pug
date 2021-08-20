@@ -1,6 +1,12 @@
 extends base
 
+block scripts 
+    script(src="/static/js/recorder.js", defer)
+
 block content
+    div
+        video#preview
+        button#startBtn Start Recording
     if errorMessage
         span=errorMessage
     form(method="post", enctype="multipart/form-data")
