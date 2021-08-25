@@ -11,7 +11,7 @@ export const protectorMiddleware = (req, res, next) => {
   if (req.session.loggedIn) {
     return next();
   }
-
+  req.flash("error", "Not Authorized");
   return res.redirect("/login");
 };
 
@@ -19,7 +19,7 @@ export const publicOnlyMiddleware = (req, res, next) => {
   if (!req.session.loggedIn) {
     return next();
   }
-
+  req.flash("error", "Not Authorized");
   return res.redirect("/");
 };
 
@@ -36,3 +36,9 @@ export const videoUpload = multer({
     fileSize: 10000000,
   },
 });
+
+export const shareBufferMiddleware = (req, res, next) => {
+  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+};

@@ -1,3 +1,5 @@
+include mixins/message
+
 doctype html
 html(lang="en")
     head
@@ -7,6 +9,12 @@ html(lang="en")
         script(src="/static/js/main.js", defer) 
         block scripts  
     body
+        if messages.error 
+            +message("error",messages.error)
+        if messages.info 
+            +message("info",messages.info)
+        if messages.success 
+            +message("success",messages.success)
         include partials/header
         main 
             block content

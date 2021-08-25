@@ -4,15 +4,18 @@ block scripts
     script(src="/static/js/recorder.js", defer)
 
 block content
-    div
-        video#preview
-        button#startBtn Start Recording
-    if errorMessage
-        span=errorMessage
-    form(method="post", enctype="multipart/form-data")
-        label(for="video") Video Upload 
-        input(type="file", accept="video/*", required, id="video", name="video")
-        input(type="text", name="title", placeholder="Video Title", required, maxlength=80)
-        input(type="text", name="description", placeholder="Description", required, minlength=20)
-        input(type="text", name="hashtags", placeholder="Hashtags, separated by comma.", required) 
-        input(type="submit", value="upload")
+    div.upload__container
+        div.upload__video
+            video#preview
+            button#actionBtn.social__btn Start Recording
+        if errorMessage
+            span=errorMessage
+        form(method="post", enctype="multipart/form-data")
+            label(for="video") Video Upload 
+            input(type="file", accept="video/*", required, id="video", name="video")
+            label(for="thumb") Thumbnail Upload 
+            input(type="file", accept="image/*", required, id="thumb", name="thumb")
+            input(type="text", name="title", placeholder="Video Title", required, maxlength=80)
+            input(type="text", name="description", placeholder="Description", required, minlength=20)
+            input(type="text", name="hashtags", placeholder="Hashtags, separated by comma.", required) 
+            input(type="submit", value="upload")

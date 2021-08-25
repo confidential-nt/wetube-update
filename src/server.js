@@ -1,4 +1,5 @@
 import express from "express";
+import flash from "express-flash";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import morgan from "morgan";
@@ -26,6 +27,7 @@ app.use(
   })
 );
 
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets")); // 경로명이 꼭 assets일 필요는 없다.
