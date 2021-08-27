@@ -3,11 +3,17 @@ import Video from "../models/Video";
 
 export const deleteComment = async (req, res) => {
   const { id } = req.params;
-  const { _id } = req.session.user;
+  const { user } = req.session;
+
+  if (!user) return res.sendStatus(403);
 
   const comment = await Comment.findById(id);
 
-  if (String(comment.owner) !== String(_id)) {
+  if (!comment) {
+    return res.sendStatus(404);
+  }
+
+  if (String(comment.owner) !== String(user._id)) {
     return res.sendStatus(403);
   }
 

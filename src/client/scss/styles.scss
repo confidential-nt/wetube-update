@@ -45,18 +45,18 @@ main {
 @keyframes flash {
   0% {
     height: 0;
-    color: rgba(0, 0, 0, 0);
+    opacity: 0;
   }
 
   60% {
     height: 50px;
-    color: rgba(255, 255, 255, 1);
+    opacity: 1;
   }
 
   100% {
     height: 0;
     display: none;
-    color: rgba(0, 0, 0, 0);
+    opacity: 0;
   }
 }
 
