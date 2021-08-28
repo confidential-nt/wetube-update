@@ -60,7 +60,7 @@ const handleLoadedMetadata = () => {
 
 const handleTimeUpdate = () => {
   currenTime.innerText = formatTime(Math.floor(video.currentTime));
-  timeline.value = (video.currentTime / video.duration) * timeline.max;
+  timeline.value = Math.floor(video.currentTime);
 };
 
 const handleTimelineChange = (event) => {
@@ -108,7 +108,8 @@ const handleEnded = (e) => {
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("loadeddata", handleLoadedMetadata);
+// video.addEventListener("loadeddata", handleLoadedMetadata);
+playBtn.addEventListener("click", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);
