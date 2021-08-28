@@ -81,6 +81,7 @@ export const postEdit = async (req, res) => {
     );
 
     req.session.user = user;
+    req.flash("info", "Profile Updated!");
     return res.redirect("/users/edit");
   } catch (e) {
     return res.render("edit-profile", {
