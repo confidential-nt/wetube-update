@@ -106,14 +106,14 @@ export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
   const { _id } = req.session.user;
-
+  const isHeroku = process.env.NODE_ENV === "production";
   try {
     const newVideo = await Video.create({
       // 커서를 갖다대면 Video.create는 프로미즈를 리턴한다는 것을 알 수 있다.
       title,
       description,
-      fileUrl: video[0].location,
-      thumbUrl: thumb[0].location,
+      fileUrl: isHeroku ? video[0].location : video[0].path,
+      thumbUrl: isHeroku ? thumb[0].location : thumb[0].path,
       // createdAt: Date.now(), 변하는 값이 아닌데 매번 아렇게 쳐야하는 건 곤욕. 따라서 schema에 가서 default 값으로 설정.
       hashtags: Video.formatHashtags(hashtags),
       // meta: {

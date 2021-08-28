@@ -7,6 +7,8 @@ block content
         if user.avatarUrl
             if user.avatarUrl.includes("github") 
                 img(src=user.avatarUrl).avatar
+            if !isHeroku 
+                img(src=`/${user.avatarUrl}`).avatar
             else     
                 img(src=user.avatarUrl).avatar
         h3=user.name
