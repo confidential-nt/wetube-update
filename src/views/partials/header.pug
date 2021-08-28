@@ -13,6 +13,8 @@ header
                     a(href="/users/edit") Edit Profile
                 li
                     a(href="/users/logout")  Log Out
+                li 
+                    a(href="/users/change-password") Change Password    
                 li
                     a(href=`/users/${loggedInUser._id}`)
                         if !loggedInUser.avatarUrl
