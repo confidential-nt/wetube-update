@@ -8,7 +8,7 @@ import "./models/User";
 import "./models/Comment";
 import app from "./server"; //server는 app과 관련된 config작업을 하는 용도로 분리.
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const listeningServer = () =>
   console.log(`Success listening at http://localhost:${PORT}!`);
