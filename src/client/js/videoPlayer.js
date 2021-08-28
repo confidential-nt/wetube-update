@@ -60,7 +60,7 @@ const handleLoadedMetadata = () => {
 
 const handleTimeUpdate = () => {
   currenTime.innerText = formatTime(Math.floor(video.currentTime));
-  timeline.value = Math.floor(video.currentTime);
+  timeline.value = (video.currentTime / video.duration) * timeline.max;
 };
 
 const handleTimelineChange = (event) => {
