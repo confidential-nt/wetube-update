@@ -22,7 +22,10 @@ header
                             span 😀
                         else
                             if !isHeroku
-                                img.header__avatar(src=`/${loggedInUser.avatarUrl}`)
+                                if user.avatarUrl.includes("github")
+                                    img.header__avatar(src=loggedInUser.avatarUrl)
+                                else     
+                                    img.header__avatar(src=`/${loggedInUser.avatarUrl}`)
                             else             
                                 img.header__avatar(src=loggedInUser.avatarUrl)             
             else
