@@ -11,6 +11,6 @@ import app from "./server"; //server는 app과 관련된 config작업을 하는 
 const PORT = process.env.PORT || 4000;
 
 const listeningServer = () =>
-  console.log(`Success listening at http://localhost:${PORT}!`);
+  console.log(`Success listening at http://localhost:${PORT}`);
 
 app.listen(PORT, listeningServer);
